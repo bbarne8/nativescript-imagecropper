@@ -18,7 +18,7 @@ export class ImageCropper {
           if (sourcePathTemp == null) {
             ImageCropper._cleanFiles();
             reject({
-              response: "Error",
+              response: "Error - Path Issue",
               image: null
             });
           }
@@ -49,7 +49,7 @@ export class ImageCropper {
                 });
               } else {
                 reject({
-                  response: "Error",
+                  response: "Error - Not is.android",
                   image: null
                 });
               }
@@ -70,7 +70,7 @@ export class ImageCropper {
               console.log(cropError.getMessage());
               application.android.off(application.AndroidApplication.activityResultEvent, onResult);
               reject({
-                response: "Error",
+                response: "Error - Yalantis issue",
                 image: null
               });
               return;
@@ -97,14 +97,14 @@ export class ImageCropper {
         else {
           // application.android.off(application.AndroidApplication.activityResultEvent, this.onResult);
           reject({
-            response: "Error",
+            response: "Error - No Image.Android",
             image: null
           });
         }
       } catch (e) {
         // application.android.off(application.AndroidApplication.activityResultEvent, this.onResult);
         reject({
-          response: "Error",
+          response: "Error - Try Catch",
           image: null
         });
       }
